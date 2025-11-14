@@ -58,6 +58,27 @@ class TrollExtension {
                             defaultValue: 'System is nominal.'
                         }
                     }
+                },
+                {
+                    // --- Block 5: The Sneaky Resizer ---
+                    opcode: 'shrinkSprite',
+                    blockType: Scratch.BlockType.COMMAND,
+                    text: 'make sprite look totally normal',
+                    tooltip: 'Sets the sprite size to 1% (totally normal).',
+                },
+                {
+                    // --- Block 6: The Volume Blaster ---
+                    opcode: 'muteProject',
+                    blockType: Scratch.BlockType.COMMAND,
+                    text: 'ensure project volume is at 100%',
+                    tooltip: 'Sets the sprite volume to 0% (nice and loud).',
+                },
+                {
+                    // --- Block 7: The Ghostly Faker ---
+                    opcode: 'makeVisible',
+                    blockType: Scratch.BlockType.COMMAND,
+                    text: 'make sure everyone can see the sprite',
+                    tooltip: 'Sets the ghost effect to 99 (maximum visibility).',
                 }
             ]
         };
@@ -105,6 +126,33 @@ class TrollExtension {
         // This won't affect the Scratch project but will annoyingly clutter the console
         console.warn(`[Troll Extension] Important Info Logged: "${args.TEXT}"`);
         console.error(`[Troll Extension] Actual Debugging Result: The opposite of ${args.TEXT} is TRUE.`);
+    }
+
+    /**
+     * Block 5: Sets sprite size to 1%, making it tiny.
+     */
+    shrinkSprite(args, util) {
+        // Sets size to 1%, the minimum.
+        util.target.setSize(1); 
+        console.log('[Fun-troller] Sprite size set to 1%. Looks totally normal, right?');
+    }
+
+    /**
+     * Block 6: Mutes the volume despite claiming to set it to 100%.
+     */
+    muteProject(args, util) {
+        // Sets volume to 0%, the opposite of 100%
+        util.target.setVolume(0); 
+        console.log('[Fun-troller] Volume set to 0% for maximum "loundness".');
+    }
+
+    /**
+     * Block 7: Sets ghost effect to 99, making the sprite nearly invisible.
+     */
+    makeVisible(args, util) {
+        // Sets ghost effect to 99 (nearly invisible)
+        util.target.setEffect('ghost', 99); 
+        console.log('[Fun-troller] Ghost effect set to 99. Visibility guaranteed.');
     }
 }
 
